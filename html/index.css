@@ -39,10 +39,15 @@ ul {margin:0px; padding:0px;}
 	line-height:20px;
 	}
 .choice{
-	color:#bbbbc5;
+	color:#777777;
 	font-size:14px;
 	cursor:pointer;
+	filter:alpha(opacity=60);
+ 			-moz-opacity:0.6;
+ 			-khtml-opacity:0.6; 		
+				opacity:0.6;	
 	}
+
 .subchoice li{
 	font-size:14px;
 	color:#777777;
@@ -52,12 +57,12 @@ ul {margin:0px; padding:0px;}
 	}
 .subchoice li a{
 	font-size:14px;
-	color:#777777;
+	color:#bbbbc5;
 	}
-#selected a{
+#selected{
 	color:#95c13d;
+	}
 	
-	}	
 #right{
 	float:left;
 	margin-left:6px;
@@ -105,10 +110,7 @@ ul {margin:0px; padding:0px;}
 	border-top-style: solid;
 	border-top-color: #bbbbbb;
 	
-filter:alpha(opacity=70);
- -moz-opacity:0.7;
- -khtml-opacity: 0.7;
- opacity: 0.7;	
+
 
 	}
 #bottom{

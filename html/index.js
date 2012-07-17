@@ -19,7 +19,7 @@ this[name]=value;
 $(document).ready(function(){
 	
  $.get('test.html', function(data) {
-  alert('Load was performed.');
+  alert(data);
 });
 		  
 	var width=document.body.clientWidth;
@@ -31,13 +31,25 @@ $(document).ready(function(){
 
 	$("#left").mouseenter(function(){
 		$(".choice").css({
-			"color":"#777777"
+			"filter":"alpha(opacity=100)",
+ 			"-moz-opacity":"1",
+ 			"-khtml-opacity":"1",
+ 			"opacity":"1"	
 		});		
 	});
 
 	$("#left").mouseleave(function(){
 		$(".choice").css({
-			"color":"#bbbbc5"
+			"filter":"alpha(opacity=60)",
+ 			"-moz-opacity":"0.6",
+ 			"-khtml-opacity":"0.6",
+ 			"opacity":"0.6"	
+		});	
+		$(".subchoice li a").css({
+			"filter":"alpha(opacity=60)",
+ 			"-moz-opacity":"0.6",
+ 			"-khtml-opacity":"0.6",
+ 			"opacity":"0.6"			
 		});		
 	});	
 	
@@ -45,11 +57,51 @@ $(document).ready(function(){
 		$(".choice").css({
 			"color":"#777777"
 		});	
+		$(".subchoice li a").css({
+			"filter":"alpha(opacity=100)",
+ 			"-moz-opacity":"1",
+ 			"-khtml-opacity":"1",
+ 			"opacity":"1"	
+		});	
+		$(this).css({
+			"color":"#95c13d"
+		});		
+	});
+
+	$(".choice").mouseleave(function(){
+		$(".choice").css({
+			"color":"#777777"
+		});		
+	});	
+	
+	$(".subchoice li a").mouseenter(function(){
 		$(this).css({
 			"color":"#95c13d"
 		});		
 	});
 	
+	$(".subchoice li a").mouseleave(function(){
+
+		if($(this).attr("id")=="selected"){
+			$(this).css({
+			"filter":"alpha(opacity=60)",
+ 			"-moz-opacity":"0.6",
+ 			"-khtml-opacity":"0.6",
+ 			"opacity":"0.6"	
+		});
+			}
+		else{
+			$(this).css({
+			"color":"#777777",
+			"filter":"alpha(opacity=60)",
+ 			"-moz-opacity":"0.6",
+ 			"-khtml-opacity":"0.6",
+ 			"opacity":"0.6"	
+		});
+			
+			}
+		
+	});
 	
 	 $(".cho").toggle(
 	  function(){
@@ -63,10 +115,17 @@ $(document).ready(function(){
 		
 		$(".subchoice li").find("a").css({
 			"color":"#777777"
+		
 		});	
 		 $(this).find("a").css({
-			"color":"#95c13d"
+			"color":"#95c13d",
+
 		});	
+		$(".subchoice li a").attr("id","");
+		$(this).find("a").attr("id","selected");
+		
+		
+	//	alert($(this).attr("title"));
 		$("#right").html("<div align=\"center\"><img src=\"img/loading.gif\" /></div>");
 		
 	});
@@ -79,7 +138,11 @@ $(".content").click(function(){
 		 $(this).animate({top:"-213px"});	
 		 $(this).css({
 			"background-color":"#000000",
-			"color":"#e5e5e5"
+			"color":"#e5e5e5",
+			"filter":"alpha(opacity=85)",
+ 			"-moz-opacity":"0.85",
+ 			"-khtml-opacity":"0.85",
+ 			"opacity":"0.85"	
 		});		 
 	});
 
@@ -88,7 +151,11 @@ $(".content").click(function(){
 		 $(this).animate({top:"10px"});
 		 		 $(this).css({
 			"background-color":"#e5e5e5",
-			"color":"#666666"
+			"color":"#666666",
+			"filter":"alpha(opacity=100)",
+ 			"-moz-opacity":"1",
+ 			"-khtml-opacity":"1",
+ 			"opacity":"1"	
 		});		
 	});
 });
